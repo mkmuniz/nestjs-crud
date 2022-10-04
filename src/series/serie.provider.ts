@@ -33,4 +33,18 @@ export class SeriesService {
 
         return serie;
     }
+
+    patch(id: String, serie: Serie): Serie {
+        const serieIndex = this.series.findIndex(serie => serie.id === id);
+
+        this.series[serieIndex] = serie;
+
+        return serie;
+    }
+
+    delete(id: String): void {
+        const serieIndex = this.series.findIndex(serie => serie.id === id);
+
+        this.series.splice(serieIndex, 1);
+    }
 }
